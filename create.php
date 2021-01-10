@@ -90,7 +90,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <div class="page-header">
                         <h2>Agregar Empleadoooooooo</h2>
                     </div>
-                    <p>Favor diligenciar el siguiente formulario, para agregar el empleado.</p>
+                    <p>Favor rellene el siguiente formulario, para agregar el empleado.</p>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="form-group <?php echo (!empty($name_err)) ? 'has-error' : ''; ?>">
                             <label>Nombre</label>
@@ -107,7 +107,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <input type="text" name="salary" class="form-control" value="<?php echo $salary; ?>">
                             <span class="help-block"><?php echo $salary_err;?></span>
                         </div>
-                        <input type="submit" class="btn btn-primary" value="Submit">
+                        <input type="submit" class="btn btn-primary" value="submit">
                         <a href="index.php" class="btn btn-default">Cancelar</a>
                     </form>
                 </div>
