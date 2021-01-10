@@ -1,11 +1,11 @@
 <?php
 // Include config file
 require_once "config.php";
- 
+
 // Define variables and initialize with empty values
 $name = $address = $salary = "";
 $name_err = $address_err = $salary_err = "";
- 
+
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate name
@@ -17,39 +17,39 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $name = $input_name;
     }
-    
+
     // Validate address
     $input_address = trim($_POST["address"]);
     if(empty($input_address)){
-        $address_err = "Por favor ingrese una dirección.";     
+        $address_err = "Por favor ingrese una dirección.";
     } else{
         $address = $input_address;
     }
-    
+
     // Validate salary
     $input_salary = trim($_POST["salary"]);
     if(empty($input_salary)){
-        $salary_err = "Por favor ingrese el monto del salario del empleado.";     
+        $salary_err = "Por favor ingrese el monto del salario del empleado.";
     } elseif(!ctype_digit($input_salary)){
         $salary_err = "Por favor ingrese un valor correcto y positivo.";
     } else{
         $salary = $input_salary;
     }
-    
+
     // Check input errors before inserting in database
     if(empty($name_err) && empty($address_err) && empty($salary_err)){
         // Prepare an insert statement
         $sql = "INSERT INTO employees (name, address, salary) VALUES (?, ?, ?)";
-         
+
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "sss", $param_name, $param_address, $param_salary);
-            
+
             // Set parameters
             $param_name = $name;
             $param_address = $address;
             $param_salary = $salary;
-            
+
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Records created successfully. Redirect to landing page
@@ -59,16 +59,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo "Something went wrong. Please try again later.";
             }
         }
-         
+
         // Close statement
         mysqli_stmt_close($stmt);
     }
-    
+
     // Close connection
     mysqli_close($link);
 }
 ?>
- 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,7 +88,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header">
-                        <h2>Agregar Empleado</h2>
+                        <h2>Agregar Empleadoooooooo</h2>
                     </div>
                     <p>Favor diligenciar el siguiente formulario, para agregar el empleado.</p>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
@@ -111,7 +111,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <a href="index.php" class="btn btn-default">Cancelar</a>
                     </form>
                 </div>
-            </div>        
+            </div>
         </div>
     </div>
 </body>
