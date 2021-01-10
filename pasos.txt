@@ -1,0 +1,11 @@
+heroku login
+
+// heroku create  -> crea la nueva aplicación
+
+// ESte es
+//https://git.heroku.com/polar-wave-13444.git
+
+git  add.
+git commit -m "mensaje"
+git push heroku master
+heroku open
