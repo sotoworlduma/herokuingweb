@@ -107,7 +107,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <input type="text" name="salary" class="form-control" value="<?php echo $salary; ?>">
                             <span class="help-block"><?php echo $salary_err;?></span>
                         </div>
-                        <input type="submit" class="btn btn-primary" value="submit">
+                        <input type="submit" class="btn btn-primary" value="enviar">
                         <a href="index.php" class="btn btn-default">Cancelar</a>
                     </form>
                 </div>
