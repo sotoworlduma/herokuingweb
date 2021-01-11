@@ -5,7 +5,12 @@ heroku login
 // ESte es
 //https://git.heroku.com/polar-wave-13444.git
 
-git  add.
+git  add .
 git commit -m "mensaje"
 git push heroku master
 heroku open
+
+////////////////////   git   ///////////////////////////
+git add .
+git commit -m "mensaje"
+git push

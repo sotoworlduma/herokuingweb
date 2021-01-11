@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (empty($_SESSION["usuario"])) {
+    header("Location: formulario.html");
+    exit();
+}
 // Include config file
 require_once "config.php";
 
@@ -43,7 +48,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "sss", $param_name, $param_address, $param_salary);
+          /*  i 	la variable correspondiente es de tipo entero
+              d 	la variable correspondiente es de tipo double
+              s 	la variable correspondiente es de tipo string */
+            mysqli_stmt_bind_param($stmt, "ssi", $param_name, $param_address, $param_salary);
 
             // Set parameters
             $param_name = $name;
@@ -53,10 +61,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Records created successfully. Redirect to landing page
-                header("location: index.php");
+                header("location: item.php");
                 exit();
             } else{
-                echo "Something went wrong. Please try again later.";
+                echo "Algo fue mal. Por favor, intentelo de nuevo.";
             }
         }
 
@@ -73,7 +81,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Agregar Empleado</title>
+    <title>Agregar Item</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
         .wrapper{
@@ -88,9 +96,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header">
-                        <h2>Agregar Empleadoooooooo</h2>
+                        <h2>Agregar Item</h2>
                     </div>
-                    <p>Favor rellene el siguiente formulario, para agregar el empleado.</p>
+                    <p>Favor rellene el siguiente formulario, para agregar el registro.</p>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="form-group <?php echo (!empty($name_err)) ? 'has-error' : ''; ?>">
                             <label>Nombre</label>
@@ -108,7 +116,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <span class="help-block"><?php echo $salary_err;?></span>
                         </div>
                         <input type="submit" class="btn btn-primary" value="enviar">
-                        <a href="index.php" class="btn btn-default">Cancelar</a>
+                        <a href="item.php" class="btn btn-default">Cancelar</a>
                     </form>
                 </div>
             </div>

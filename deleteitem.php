@@ -1,32 +1,37 @@
 <?php
+session_start();
+if (empty($_SESSION["usuario"])) {
+    header("Location: formulario.html");
+    exit();
+}
 // Process delete operation after confirmation
 if(isset($_POST["id"]) && !empty($_POST["id"])){
     // Include config file
     require_once "config.php";
-    
+
     // Prepare a delete statement
     $sql = "DELETE FROM employees WHERE id = ?";
-    
+
     if($stmt = mysqli_prepare($link, $sql)){
         // Bind variables to the prepared statement as parameters
         mysqli_stmt_bind_param($stmt, "i", $param_id);
-        
+
         // Set parameters
         $param_id = trim($_POST["id"]);
-        
+
         // Attempt to execute the prepared statement
         if(mysqli_stmt_execute($stmt)){
             // Records deleted successfully. Redirect to landing page
-            header("location: index.php");
+            header("location: item.php");
             exit();
         } else{
-            echo "Oops! Something went wrong. Please try again later.";
+            echo "Oops! Algo fue mal. Por favor, intentelo de nuevo.";
         }
     }
-     
+
     // Close statement
     mysqli_stmt_close($stmt);
-    
+
     // Close connection
     mysqli_close($link);
 } else{
@@ -65,12 +70,12 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                             <p>Está seguro que deseas borrar el registro</p><br>
                             <p>
                                 <input type="submit" value="Si" class="btn btn-danger">
-                                <a href="index.php" class="btn btn-default">No</a>
+                                <a href="item.php" class="btn btn-default">No</a>
                             </p>
                         </div>
                     </form>
                 </div>
-            </div>        
+            </div>
         </div>
     </div>
 </body>

@@ -17,13 +17,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header">
-                        <h1>Invalid Request</h1>
+                        <h1>Petición erronea</h1>
                     </div>
                     <div class="alert alert-danger fade in">
-                        <p>Sorry, you've made an invalid request. Please <a href="index.php" class="alert-link">go back</a> and try again.</p>
+                        <p>Lo sentimos, has realizado una petición no válida. Por favor <a href="item.php" class="alert-link">vuelva al inicio</a> e intentelo de nuevo.</p>
                     </div>
                 </div>
-            </div>        
+            </div>
         </div>
     </div>
 </body>
