@@ -34,7 +34,16 @@
   ?>
     <div class="wrapper">
         <div class="container-fluid">
-          <span id="cerrarsesion" style="right:5px;"><a href="logout.php">Cerrar sesión</a></span>
+          <span id="cerrarsesion" style="right:5px;"><a href="logout.php">Cerrar sesión de
+            <?php
+            if ( isset($_SESSION["usuario"])) {
+              echo $_SESSION["usuario"];
+            }
+            if ( isset($_SESSION["google"])) {
+              echo $_SESSION["google"];
+            }
+            ?>
+          </a></span>
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header clearfix">
