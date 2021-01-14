@@ -27,7 +27,7 @@
 <body>
   <?php
   session_start();
-  if (empty($_SESSION["usuario"])) {
+  if (empty($_SESSION["usuario"]) && empty($_SESSION["google"])) {
       header("Location: formulario.html");
       exit();
   }

@@ -6,7 +6,7 @@ session_start();
 
 # Y ahora leer si NO hay algo llamado usuario en la sesión,
 # usando empty (vacío, ¿está vacío?)
-if (empty($_SESSION["usuario"])) {
+if (empty($_SESSION["usuario"]) && empty($_SESSION["google"])) {
     # Lo redireccionamos al formulario de inicio de sesión
     header("Location: formulario.html");
     # Y salimos del script
