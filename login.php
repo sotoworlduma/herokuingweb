@@ -9,9 +9,11 @@
 
 $usuario_correcto = null;
 $password_correcto = null;
+$id = null;
 
 $usuario = null;
 $password = null;
+
 
 if(isset($_POST["usuario"]) && !empty(trim($_POST["usuario"])) && isset($_POST["password"]) && !empty(trim($_POST["password"]))){
     require_once "config.php";
@@ -27,6 +29,7 @@ if(isset($_POST["usuario"]) && !empty(trim($_POST["usuario"])) && isset($_POST["
                 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
                 $usuario_correcto = $row["usuario"];
                 $password_correcto = $row["pass"];
+                $id = $row["id"];
             } else{
                 header("location: error.php");
                 exit();
@@ -53,6 +56,7 @@ if ($usuario === $usuario_correcto && $password === $password_correcto) {
     # ya ha iniciado sesión o no. En este caso es el nombre
     # de usuario
     $_SESSION["usuario"] = $usuario;
+    $_SESSION["id"] = $id;
 
     # Luego redireccionamos a la página "Secreta"
     header("Location: item.php");

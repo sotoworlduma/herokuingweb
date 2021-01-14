@@ -44,20 +44,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check input errors before inserting in database
     if(empty($name_err) && empty($address_err) && empty($salary_err)){
         // Prepare an insert statement
-        $sql = "INSERT INTO employees (name, address, salary, created) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO employeeshelp (name, userpass_id, active) VALUES (?, ?, ?)";
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
           /*  i 	la variable correspondiente es de tipo entero
               d 	la variable correspondiente es de tipo double
               s 	la variable correspondiente es de tipo string */
-            mysqli_stmt_bind_param($stmt, "ssis", $param_name, $param_address, $param_salary, $param_fecha);
+            mysqli_stmt_bind_param($stmt, "ssi", $param_name, $param_address, $param_salary);
 
             // Set parameters
             $param_name = $name;
-            $param_address = $address;
-            $param_salary = $salary;
-            $param_fecha = date('Y-m-d H:i:s');
+            $param_address = $_SESSION["id"];
+            $param_salary = 1;
+            //$param_fecha = date('Y-m-d H:i:s');
 
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){

@@ -56,6 +56,7 @@
                                         echo "<th>Nombre</th>";
                                         echo "<th>Dirección</th>";
                                         echo "<th>Sueldo</th>";
+                                        echo "<th>Fecha</th>";
                                         echo "<th>Acción</th>";
                                     echo "</tr>";
                                 echo "</thead>";
@@ -66,6 +67,7 @@
                                         echo "<td>" . $row['name'] . "</td>";
                                         echo "<td>" . $row['address'] . "</td>";
                                         echo "<td>" . $row['salary'] . "</td>";
+                                        echo "<td>" . $row['created'] . "</td>";
                                         echo "<td>";
                                         echo "<a href='readitem.php?id=". $row['id'] ."' title='Ver' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'>V</span></a>";
                                         echo "<a href='updateitem.php?id=". $row['id'] ."' title='Editar' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'>E</span></a>";
