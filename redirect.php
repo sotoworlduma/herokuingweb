@@ -7,7 +7,7 @@ $clientID = '648088050103-v0lgk85q7vgs1b5eoi3jm4568qrut8tg.apps.googleuserconten
 //'970542370866-mfbu6qoqof18qerjrp6ou2s3hj013826.apps.googleusercontent.com';
 $clientSecret = 'dr64M8pcjztNQ90RbljWllmJ';
 //'bNmBRbjOZ9jMi_bd1dp2Qf6L';
-$redirectUri = 'http://localhost/samplecrudbajado/redirect.php';
+$redirectUri = 'https://polar-wave-13444.herokuapp.com/redirect.php';
 
 // create Client Request to access Google API
 $client = new Google_Client();
