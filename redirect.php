@@ -30,9 +30,12 @@ if (isset($_GET['code'])) {
   session_start();
   $_SESSION["google"] = $name;
   $_SESSION["googlecorreo"] = $email;
-
+  echo "<p>";
   echo "Correo: ".$_SESSION["googlecorreo"];
+  echo "<br>";
   echo 'Nombre: '.$_SESSION["google"];
+  echo "</p>";
+  echo '<a href=item.php>ver registros</a>';
   //echo $google_account_info;
   header("Location: item.php");
 
