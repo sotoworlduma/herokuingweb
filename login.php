@@ -20,7 +20,7 @@ if(isset($_POST["usuario"]) && !empty(trim($_POST["usuario"])) && isset($_POST["
     $usuario = $_POST["usuario"];
     $password = $_POST["password"];
     $sql = "SELECT * FROM userpass WHERE usuario = ?";//var_dump($sql);
-    if($stmt = mysqli_prepare($link, $sql)){var_dump("entra");
+    if($stmt = mysqli_prepare($link, $sql)){
         mysqli_stmt_bind_param($stmt, "s", $param_user);
         $param_user = trim($_POST["usuario"]);
         if(mysqli_stmt_execute($stmt)){
@@ -57,9 +57,17 @@ if ($usuario === $usuario_correcto && $password === $password_correcto) {
     # de usuario
     $_SESSION["usuario"] = $usuario;
     $_SESSION["id"] = $id;
+    /*$server = $_SERVER['DOCUMENT_ROOT'];
+    $pathnormal = "$server/uploads/$id";
+    if (!file_exists($pathnormal)) {
+      if(!mkdir($pathnormal, 0777))
+        var_dump("error creando".$pathnormal);
+    }else {
+      var_dump("ya existe la carpeta ".$pathnormal);
+    }**/
 
     # Luego redireccionamos a la página "Secreta"
-    header("Location: item.php");
+    header("Location: imagenes.php");
 } else {
 
      header("Location: formulario.html");

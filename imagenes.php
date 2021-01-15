@@ -47,36 +47,29 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header clearfix">
-                        <h2 class="pull-left">Empleados</h2>
-                        <a href="createitem2.php" class="btn btn-success pull-right">Agregar nuevo registro</a>
+                        <h2 class="pull-left">Imagenes</h2>
+                        <a href="formsubida.php" class="btn btn-success pull-right">Agregar nueva imagen</a>
                     </div>
                     <?php
                     // Include config file
                     require_once "config.php";
 
                     // Attempt select query execution
-                    $sql = "SELECT * FROM employees";
+                    $sql = "SELECT * FROM images";
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
                             echo "<table class='table table-bordered table-striped'>";
                                 echo "<thead>";
                                     echo "<tr>";
-                                        echo "<th>#</th>";
                                         echo "<th>Nombre</th>";
-                                        echo "<th>Dirección</th>";
-                                        echo "<th>Sueldo</th>";
-                                        echo "<th>Fecha</th>";
-                                        echo "<th>Acción</th>";
+                                        echo "<th>Texto</th>";
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
                                 while($row = mysqli_fetch_array($result)){
                                     echo "<tr>";
-                                        echo "<td>" . $row['id'] . "</td>";
                                         echo "<td>" . $row['name'] . "</td>";
-                                        echo "<td>" . $row['address'] . "</td>";
-                                        echo "<td>" . $row['salary'] . "</td>";
-                                        echo "<td>" . $row['created'] . "</td>";
+                                        echo "<td>" . $row['texto'] . "</td>";
                                         echo "<td>";
                                         echo "<a href='readitem.php?id=". $row['id'] ."' title='Ver' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'>V</span></a>";
                                         echo "<a href='updateitem.php?id=". $row['id'] ."' title='Editar' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'>E</span></a>";

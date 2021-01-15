@@ -37,7 +37,7 @@ if (isset($_GET['code'])) {
   echo "</p>";
   echo '<a href=item.php>ver registros</a>';
   //echo $google_account_info;
-  header("Location: item.php");
+  header("Location: imagenes.php");
 
   // now you can use this profile info to create account in your website and make user logged in.
 } else {
