@@ -27,12 +27,13 @@ if (isset($_GET['code'])) {
   $google_account_info = $google_oauth->userinfo->get();
   $email =  $google_account_info->email;
   $name =  $google_account_info->name;
+  session_start();
   $_SESSION["google"] = $name;
   $_SESSION["googlecorreo"] = $email;
 
   echo "Correo: ".$_SESSION["googlecorreo"];
   echo 'Nombre: '.$_SESSION["google"];
-  echo $google_account_info;
+  //echo $google_account_info;
   header("Location: item.php");
 
   // now you can use this profile info to create account in your website and make user logged in.
