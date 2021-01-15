@@ -1,5 +1,6 @@
 
 <?php
+session_start();
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -30,10 +31,10 @@ if ($_FILES["fileToUpload"]["size"] > 500000) {
   $uploadOk = 0;
 }
 
-// Allow certain file formats
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" ) {
-  echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+// Allow certain fisset(ile formats
+// && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif"
+if($imageFileType != "jpg") {
+  echo "Sorry, solo admito JPG,ni JPEG, ni PNG, ni GIF ni otros";
   $uploadOk = 0;
 }
 
@@ -56,9 +57,9 @@ if($stmt = mysqli_prepare($link, $sql)){
 
     // Set parameters
     $param_name = pathinfo($_FILES['fileToUpload']['name'], PATHINFO_FILENAME);
-    $param_usuario = $_SESSION["id"] ? $_SESSION["id"] : null;
-    $param_texto = $_POST["texto"];
-    $param_google = ($_SESSION["googlecorreo"] ? $_SESSION["googlecorreo"] : null);
+    $param_usuario = isset($_SESSION["id"]) ? $_SESSION["id"] : null;
+    $param_texto = isset($_POST["texto"]) ? $_POST["texto"] : 'Sin comentarios';
+    $param_google = (isset($_SESSION["googlecorreo"]) ? $_SESSION["googlecorreo"] : null);
     //$param_fecha = date('Y-m-d H:i:s');
 
     // Attempt to execute the prepared statement

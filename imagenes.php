@@ -68,12 +68,11 @@
                                 echo "<tbody>";
                                 while($row = mysqli_fetch_array($result)){
                                     echo "<tr>";
-                                        echo "<td>" . $row['name'] . "</td>";
+                                        echo "<td><img src='uploads/" . $row['name'] . ".jpg'></img></td>";
                                         echo "<td>" . $row['texto'] . "</td>";
                                         echo "<td>";
-                                        echo "<a href='readitem.php?id=". $row['id'] ."' title='Ver' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'>V</span></a>";
-                                        echo "<a href='updateitem.php?id=". $row['id'] ."' title='Editar' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'>E</span></a>";
-                                        echo "<a href='deleteitem.php?id=". $row['id'] ."' title='Borrar' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'>B</span></a>";
+
+                                        echo "<a href='deleteimagen.php?id=". $row['id'] ."' title='Borrar' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'>B</span></a>";
                                         echo "</td>";
                                     echo "</tr>";
                                 }
